@@ -1,0 +1,105 @@
+const jobs = [
+	{
+		company: "YOU Cosmetics (Hebe Beauty Style)",
+		job_title: "Sales",
+		requirements: [
+			"Pria, usia maks 35 Tahun",
+			"Berpengalaman di bidang marketing",
+			"Pendidikan Min. SMA/Sederajad",
+		],
+		tags: [
+			"Pria",
+			"Wanita",
+			"Pria/Wanita",
+			"35 Tahun maks",
+			"Berpengalaman marketing",
+			"Min. Pendidikan SMA",
+		],
+		status: "",
+	},
+	{
+		company: "YOU Cosmetics (Hebe Beauty Style)",
+		job_title: "Beauty Advisor",
+		requirements: [
+			"Pria/Wanita usia maks 35 Tahun",
+			"Berpengalaman di bidang marketing",
+			"Pendidikan Min. SMA/Sederajad",
+		],
+		tags: [
+			"Pria",
+			"Wanita",
+			"Pria/Wanita",
+			"35 Tahun maks",
+			"Berpengalaman marketing",
+			"Min. Pendidikan SMA",
+		],
+		status: "",
+	},
+	{
+		company: "YOU Cosmetics (Hebe Beauty Style)",
+		job_title: "Trainer",
+		requirements: [
+			"Pria/Wanita usia maks 35 Tahun",
+			"Berpengalaman di bidang marketing",
+			"Pendidikan Min. SMA/Sederajad",
+		],
+		tags: [
+			"Pria",
+			"Wanita",
+			"Pria/Wanita",
+			"35 Tahun maks",
+			"Berpengalaman marketing",
+			"Min. Pendidikan SMA",
+		],
+		status: "",
+	},
+	{
+		company: "PT. BINA ARTHA VENTURA",
+		job_title: "Account Officer",
+		requirements: ["Fresh graduate"],
+		tags: ["Fresh graduate"],
+		status: "",
+	},
+	{
+		company: "PT. BINA ARTHA VENTURA",
+		job_title: "Field Collection",
+		requirements: ["Pengalaman collection"],
+		tags: ["Pengalaman collection"],
+		status: "",
+	},
+	{
+		company: "PT. BTPN SYARIAH",
+		job_title: "Community Officer",
+		requirements: [
+			"Min Pendidikan SMA/Sederajad",
+			"Menyukai Kegiatan Lapangan",
+			"Mampu Mengendarai Motor Manual",
+		],
+		tags: ["Min. Pendidikan SMA", "Lapangan", "Mengendarai Motor Manual"],
+		status: "PKWT",
+	},
+	{
+		company: "KSP MULTI DAYA SENTOSA",
+		job_title: "Account Officer",
+		requirements: [
+			"Min Pendidikan SMA/Sederajad",
+			"Bersedia di tempatkan di seluruh wilayah kerja",
+		],
+		tags: ["Min. Pendidikan SMA", "Lapangan", "Seluruh wilayah"],
+		status: "",
+	},
+];
+
+const tags = [
+	"Pria",
+	"Wanita",
+	"Pria/Wanita",
+	"35 Tahun maks",
+	"Berpengalaman marketing",
+	"Min. Pendidikan SMA",
+	"Fresh graduate",
+	"Pengalaman collection",
+	"Lapangan",
+	"Mengendarai Motor Manual",
+	"Seluruh wilayah",
+];

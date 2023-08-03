@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html data-theme="corporate">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Jember Job Fair 2023</title>
+
+		<!-- Tailwind CSS -->
+		<!-- <link href="/dist/output.css" rel="stylesheet" /> -->
+		<link href="/dist/build.css" rel="stylesheet" />
+
+		<!-- Job fair dummy data -->
+		<script src="data.js"></script>
+
+		<!-- Web Icon -->
+		<link rel="icon" href="./assets/images/logo.png" />
+
+		<!-- Iconify -->
+		<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+	</head>
+	<body>
+		<!-- Navbar as decoration -->
+		<div class="navbar bg-base-100">
+			<div class="container mx-auto">
+				<div class="flex-none">
+					<button class="btn btn-circle btn-ghost">
+						<img src="./assets/images/logo.png" alt="" class="h-6 w-6" />
+					</button>
+				</div>
+				<a class="btn btn-ghost normal-case text-xl">Jember Job Fair 2023</a>
+			</div>
+		</div>
+		<div class="md:container mx-auto p-4 min-h-screen overflow-x-hidden">
+			<!-- A little bit of space base on screen high -->
+			<div class="mt-8 md:h-[5vh]">&nbsp;</div>
+
+			<!-- HERO -->
+			<div class="mb-16 md:flex md:justify-between">
+				<div class="">
+					<!-- Little decoration button -->
+					<div class="btn btn-xs md:btn-sm btn-outline mb-8">
+						Lamar Pekerjaan
+					</div>
+
+					<!-- Greeting -->
+					<div class="text-4xl md:text-6xl font-bold mb-4 flex flex-col md:flex-row gap-4">
+						<span class="">
+							<img
+								src="./assets/images/logo.png"
+								alt=""
+								class="w-20 rounded-full object-contain"
+							/>
+						</span>
+						<span class="self-start md:self-end">Jember Job Fair 2023</span>
+					</div>
+
+					<!-- A little of text -->
+					<div class="text-lg md:text-xl mb-4">
+						Jelajahi Kesempatan Karir! <br />
+						Temukan karier impian Anda di Job Fair kami - jangan lewatkan
+						kesempatan emas ini!
+					</div>
+
+					<!-- Event description -->
+					<div>
+						<ul>
+							<li class="flex gap-2 items-center mb">
+								<span
+									class="iconify"
+									data-icon="heroicons:calendar-days"
+								></span>
+								<span>2-3 AGUSTUS 2023</span>
+							</li>
+							<li class="flex gap-2 items-center mb">
+								<span class="iconify" data-icon="heroicons:map-pin"></span>
+								<span>GEDUNG BALAI SERBAGUNA (GOR) - KALIWATES - JEMBER</span>
+							</li>
+							<li class="flex gap-2 items-center mb">
+								<span class="iconify" data-icon="heroicons:clock"></span>
+								<span>OPEN GATE 08.00 - 13.00</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="self-center hidden md:block">
+					<img src="./assets/images/Career _Outline.svg" alt="career_outline" />
+				</div>
+			</div>
+
+			<!-- Job List Section -->
+			<div class="flex flex-col w-full">
+				<!-- Filter base on tags -->
+				<div
+					class="flex h-16 mb-0 md:mb-4 place-items-start gap-4 overflow-x-scroll"
+					id="tagDataContainer"
+				>
+					<!-- <button class="btn btn-outline">Filter</button> -->
+				</div>
+
+				<!-- Divider -->
+				<div class="divider"></div>
+
+				<!-- Job listing -->
+				<div class="flex flex-col gap-4 mb-4" id="jobDataContainer"></div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer class="footer items-center p-4 bg-neutral text-neutral-content">
+			<div class="container mx-auto">
+				<div class="flex items-center gap-4">
+					<svg
+						width="36"
+						height="36"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+						fill-rule="evenodd"
+						clip-rule="evenodd"
+						class="fill-current"
+					>
+						<path
+							d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"
+						></path>
+					</svg>
+					<p>Copyright © 2023 - All right reserved</p>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			window.onload = function () {
+				showJobs();
+				showTags();
+			};
+
+			function showTags() {
+				const dataContainer = document.getElementById("tagDataContainer");
+
+				// for (const tag of tags) {
+				for (const [index, tag] of tags.entries()) {
+					const tagElement = document.createElement("button");
+					tagElement.classList.add("btn", "btn-outline");
+					tagElement.setAttribute("id", `tag-${index}`);
+					tagElement.innerHTML = `${tag}`;
+
+					dataContainer.appendChild(tagElement);
+				}
+			}
+
+			function showJobs() {
+				const dataContainer = document.getElementById("jobDataContainer");
+
+				for (const job of jobs) {
+					const jobElement = document.createElement("div");
+					jobElement.classList.add(
+						"flex",
+						"justify-between",
+						"mb-4",
+						"p-0",
+						"md:p-4",
+						"border-b-2",
+						"border-base-300"
+					);
+					jobElement.innerHTML = `
+<!-- Detail -->
+<div>
+	<!-- Title -->
+	<div class="mb-4">
+		<div class="text-2xl font-bold mb-2">${job.job_title}</div>
+		<div class="text-lg">@ ${job.company}</div>
+	</div>
+
+	<!-- A little bit of description -->
+	<!-- <div class="text-lg mb-4">Just a little bit of description</div> -->
+
+	<!-- Requirements -->
+	<div class="mb-4">
+		<div class="text-lg mb-2">Persyaratan</div>
+
+		<ul class="list-disc ml-4">
+			${job.requirements.map((requirement) => `<li>${requirement}</li>`).join("")}
+		</ul>
+	</div>
+
+	<div class="mb-4">
+		<div class="text-lg mb-2">Status: ${job.status}</div>
+	</div>
+
+	<!-- Tag -->
+	<div class="flex gap-4 flex-wrap mb-4 max-w-lg">
+		${job.tags
+			.map(
+				(tag) =>
+					`<button class="btn btn-xs md:btn-sm btn-outline">${tag}</button>`
+			)
+			.join("")}
+	</div>
+</div>
+
+<!-- Click to apply -->
+<div class="hidden md:block">
+	<a href="#" class="flex">
+		<span class="text-2xl flex-1">Lamar</span>
+		<span
+			class="iconify w-8 h-8"
+			data-icon="heroicons:arrow-up-right-20-solid"
+		></span>
+	</a>
+</div>
+					`;
+
+					dataContainer.appendChild(jobElement);
+				}
+			}
+		</script>
+	</body>
+</html>
